@@ -6,6 +6,7 @@ import pytest
 
 @pytest.fixture(scope="function", autouse=True)
 def test_create_file():
+    os.chdir('resources')
     with (zipfile.ZipFile('arch.zip', 'w') as arch):
         arch.write('AByteofPythonRussian-2.02.pdf')
         arch.write('Excel.xlsx')
