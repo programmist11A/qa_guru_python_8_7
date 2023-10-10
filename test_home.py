@@ -1,4 +1,7 @@
 import zipfile
+from PyPDF2 import PdfReader
+import xlrd
+from openpyxl import load_workbook
 
 
 def test_txt():
