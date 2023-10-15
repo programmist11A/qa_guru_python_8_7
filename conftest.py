@@ -4,7 +4,7 @@ import zipfile
 import pytest
 
 
-@pytest.fixture(scope="function", autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def test_create_file():
     os.chdir('resources')
     with (zipfile.ZipFile('arch.zip', 'w') as arch):
