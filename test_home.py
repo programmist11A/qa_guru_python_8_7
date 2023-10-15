@@ -4,11 +4,10 @@ from PyPDF2 import PdfReader
 import xlrd
 from openpyxl import load_workbook
 
-
-
 path_root = os.path.dirname(os.path.abspath(__file__))
 path_tmp = os.path.join(path_root, 'tmp')
 path_tmp_zip_file = os.path.join(path_root, 'tmp', 'arch.zip')
+
 
 def test_txt():
     with zipfile.ZipFile(path_tmp_zip_file, 'r') as arch:
@@ -51,5 +50,6 @@ def test_xls():
             xls_workbook = xlrd.open_workbook(file_contents=xls_content)
             sheet = xls_workbook.sheet_by_index(1)
             expected_value = 'run forest! RUN!!!'
-            actual_value = sheet.cell_value(1, 1)
+            actual_value = sheet.cell_value(0, 0)
+            print(actual_value)
             assert actual_value == expected_value
